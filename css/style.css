@@ -68,7 +68,7 @@ a.text-primary {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-family: "Playfair Display", serif;
-  color: #black; }
+  color: black; }
 
 .btn {
   padding-top: 15px;
@@ -348,10 +348,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
           display: inline-block; }
           .site-nav .site-navigation .site-menu > li.active > a:after {
             content: "";
-            height: 3px;
-            left: 15px;
-            right: 15px;
-            bottom: 0;
+            height: 2.5px;
+            left: 40px;
+            right: 30px;
+            bottom: 2px;
             position: absolute;
             background: #000000; }
       .site-nav .site-navigation .site-menu .has-children {
