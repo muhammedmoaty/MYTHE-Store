@@ -238,7 +238,9 @@
               <tbody>
  <tr v-for="(item, index) in cart" :key="item.id">
     <td class="product-thumbnail">
-      <img :src="'images/products/' + item.id + '-min.jpg'" alt="Image" class="img-fluid">
+      <img :src="product.image" alt="Product Image" class="img-fluid">
+
+      <!--<img :src="'images/products/' + item.id + '-min.jpg'" alt="Image" class="img-fluid">-->
     </td>
     <td class="product-name">
       <h2 class="h5 text-black">{{ item.name }}</h2>
@@ -490,6 +492,7 @@
   new Vue({
     el: '#app',
     data: {
+      image: "images/products/jacket-1-min.jpg",
       cart: [
         { id: 1, name: 'Top Up T-Shirt', price: 49.00, quantity: 1 },
         { id: 2, name: 'Polo Shirt', price: 49.00, quantity: 1 }
@@ -510,7 +513,7 @@
         return this.cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
       }
     }
-}).mount('#app');
+  }).$mount('#app');
 </script>
 
   </div>
