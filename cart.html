@@ -37,6 +37,9 @@
 </head>
 
 <body>
+<div id="app" class="page-heading bg-light">
+  
+
 
   <div class="search-form" id="search-form">
     <form action="">
@@ -181,10 +184,63 @@
                   <th class="product-remove">Remove</th>
                 </tr>
               </thead>
+              
+              <!--<tbody>
+                <tr>
+                  <td class="product-thumbnail">
+                    <img src="images/products/jacket-1-min.jpg" alt="Image" class="img-fluid">
+                  </td>
+                  <td class="product-name">
+                    <h2 class="h5 text-black">Top Up T-Shirt</h2>
+                  </td>
+                  <td>$49.00</td>
+                  <td>
+                    <div class="input-group mb-3" style="max-width: 120px;">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-outline-black js-btn-minus" type="button">&minus;</button>
+                      </div>
+                      <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-black js-btn-plus" type="button">&plus;</button>
+                      </div>
+                    </div>
+
+                  </td>
+                  <td>$49.00</td>
+                  <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+                </tr>
+
+                <tr>
+                  <td class="product-thumbnail">
+                    <img src="images/products/bottoms-1-min.jpg" alt="Image" class="img-fluid">
+                  </td>
+                  <td class="product-name">
+                    <h2 class="h5 text-black">Polo Shirt</h2>
+                  </td>
+                  <td>$49.00</td>
+                  <td>
+                    <div class="input-group mb-3" style="max-width: 120px;">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-outline-black js-btn-minus" type="button">&minus;</button>
+                      </div>
+                      <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-black js-btn-plus" type="button">&plus;</button>
+                      </div>
+                    </div>
+
+                  </td>
+                  <td>$49.00</td>
+                  <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+                </tr>
+              </tbody>-->
+          
               <tbody>
-  <tr v-for="(item, index) in cart" :key="item.id">
+ <tr v-for="(item, index) in cart" :key="item.id">
     <td class="product-thumbnail">
-      <img :src="'images/products/' + item.id + '-min.jpg'" alt="Image" class="img-fluid">
+      <img :src="product.image" alt="Product Image" class="img-fluid">
+
+      <!--<img :src="'images/products/' + item.id + '-min.jpg'" alt="Image" class="img-fluid">-->
     </td>
     <td class="product-name">
       <h2 class="h5 text-black">{{ item.name }}</h2>
@@ -205,6 +261,7 @@
     <td><a @click="removeItem(index)" class="btn btn-black btn-sm">X</a></td>
   </tr>
 </tbody>
+
 
             </table>
           </div>
@@ -247,8 +304,22 @@
       </div>
       <div class="row mb-3">
         <div class="col-md-6">
-          <span class="text-black">Subtotal</span>
-        </div>
+                  <!--<span class="text-black">Subtotal</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <strong class="text-black">$230.00</strong>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-md-6">
+                  <span class="text-black">Total</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <strong class="text-black">$230.00</strong>
+                </div>
+              </div>-->
+         <span class="text-black">Subtotal</span>
+      </div>
         <div class="col-md-6 text-right">
           <strong class="text-black">{{ '$' + calculateTotal() }}</strong>
         </div>
@@ -407,7 +478,7 @@
     </div>
   </div>
 
-  <script src="js/jquery-3.4.1.min.js"></script>
+ <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
@@ -421,6 +492,7 @@
   new Vue({
     el: '#app',
     data: {
+      image: "images/products/jacket-1-min.jpg",
       cart: [
         { id: 1, name: 'Top Up T-Shirt', price: 49.00, quantity: 1 },
         { id: 2, name: 'Polo Shirt', price: 49.00, quantity: 1 }
@@ -441,10 +513,10 @@
         return this.cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
       }
     }
-  });
+  }).$mount('#app');
 </script>
 
-  
+  </div>
 </body>
 
 </html>
